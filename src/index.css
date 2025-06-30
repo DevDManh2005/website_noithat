@@ -3,11 +3,17 @@
 /* --- Class dùng chung --- */
 
 .container {
-    @apply w-full max-w-full px-4 mx-auto; /* cơ bản */
+    @apply w-full px-4 mx-auto; /* cơ bản */
 }
 
 @media (min-width: 1536px) {
     .container {
         max-width: 1170px;
     }
+}
+
+.icon-cart {
+    font-size: 14px;
+    position: relative;
+    color: #ffffff;
 }
