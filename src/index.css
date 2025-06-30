@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@tailwind utilities;
+/* --- Class dùng chung --- */
+
+.container {
+    @apply w-full px-4 mx-auto; /* cơ bản */
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1170px;
+    }
+}
+
+.icon-cart {
+    font-size: 22px;
+    position: relative;
+    color: #ffffff;
+}
