@@ -15,7 +15,7 @@ import type { FormProps } from 'antd';
 import type { MenuProps } from 'antd';
 import { GrFormNext } from "react-icons/gr";
 type FieldType = {
-    search?: string;a
+    search?: string;
 
 };
 
@@ -126,7 +126,7 @@ const AppHeader = () => {
                     <div className="basis-2/12">
                         Logo
                     </div>
-                    <div className="basis-5/12">
+                    <div className="basis-5/12 pl-[20px]">
                         <div ref={formRef} className='!relative'>
                             <Form
                                 onFinish={onFinish}
@@ -149,11 +149,11 @@ const AppHeader = () => {
                             </Form>
                         </div>
                     </div>
-                    <div className="basis-5/12">
+                    <div className="basis-4/12">
                         <div className="flex justify-end items-center">
                             <nav className="page-header__bottom">
                                 <ul className="flex justify-between items-center gap-x-6">
-                                    <li className="navigation__item">
+                                    <li className="navigation__item cursor-pointer">
                                         <Popover
                                             className="popover-carts"
                                             placement="topRight"
@@ -172,12 +172,12 @@ const AppHeader = () => {
                                             </Badge>
                                         </Popover>
                                     </li>
-                                    <li>
+                                    <li className="cursor-pointer">
                                         <div>
                                             <FaRegHeart className='icon-cart' />
                                         </div>
                                     </li>
-                                    <li>
+                                    <li className="cursor-pointer">
                                         <div className="flex items-center gap-x-1">
                                             <FaRegCircleUser className='icon-cart' />
                                             <p className="text-[#ffff]">Đăng nhập</p>
@@ -189,31 +189,36 @@ const AppHeader = () => {
                     </div>
                 </div>
             </div>
-            <nav className="container h-[45px] flex items-center">
-                <div className="basis-3/12 flex items-center">
-                    <GiHamburgerMenu />
-                    <Dropdown menu={{ items }} placement="bottom" className="!px-1">
-                        <Button className="!border-none text-[14px] !shadow-none !font-medium uppercase">Danh mục sản phẩm</Button>
-                    </Dropdown>
-                </div>
-                <ul className="basis-9/12 flex items-center">
-                    <li>
-                        <Link to="/" className='px-[12px] py-[8px] uppercase text-[14px] font-medium hover:text-[#337ab7]'>Trang chủ</Link>
-                    </li>
-                    <li>
-                        <Link to="/" className='px-[12px] py-[8px] uppercase text-[14px] font-medium hover:text-[#337ab7]'>Giới Thiệu</Link>
-                    </li>
-                    <li>
-                        <Link to="/" className='px-[12px] py-[8px] uppercase text-[14px] font-medium hover:text-[#337ab7]'>Sản Phẩm</Link>
-                    </li>
-                    <li>
-                        <Link to="/" className='px-[12px] py-[8px] uppercase text-[14px] font-medium hover:text-[#337ab7]'>Tin Tức</Link>
-                    </li>
-                    <li>
-                        <Link to="/" className='px-[12px] py-[8px] uppercase text-[14px] font-medium hover:text-[#337ab7]'>Liên Hệ</Link>
-                    </li>
-                </ul>
-            </nav>
+            <div className="shadow-soft">
+                <nav className="container h-[45px] flex items-center">
+                    <div className="basis-3/12 flex items-center shadow-soft py-[6px] px-[10px]">
+
+                        <Dropdown menu={{ items }} placement="bottom" className="!px-1">
+                            <Button className="!border-none text-[14px] !shadow-none !font-medium uppercase">
+                                <GiHamburgerMenu />
+                                Danh mục sản phẩm
+                            </Button>
+                        </Dropdown>
+                    </div>
+                    <ul className="basis-9/12 flex items-center pl-[16px]">
+                        <li>
+                            <Link to="/" className='px-[12px] py-[8px] uppercase text-[14px] font-medium hover:text-[#337ab7]'>Trang chủ</Link>
+                        </li>
+                        <li>
+                            <Link to="/" className='px-[12px] py-[8px] uppercase text-[14px] font-medium hover:text-[#337ab7]'>Giới Thiệu</Link>
+                        </li>
+                        <li>
+                            <Link to="/" className='px-[12px] py-[8px] uppercase text-[14px] font-medium hover:text-[#337ab7]'>Sản Phẩm</Link>
+                        </li>
+                        <li>
+                            <Link to="/" className='px-[12px] py-[8px] uppercase text-[14px] font-medium hover:text-[#337ab7]'>Tin Tức</Link>
+                        </li>
+                        <li>
+                            <Link to="/" className='px-[12px] py-[8px] uppercase text-[14px] font-medium hover:text-[#337ab7]'>Liên Hệ</Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </>
     )
 }

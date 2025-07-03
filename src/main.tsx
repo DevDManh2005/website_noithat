@@ -12,6 +12,7 @@ import RegisterPage from 'pages/client/auth/register';
 import HomePage from 'pages/client/home';
 import { CartProvider } from './context/CartContext';
 import Profile from './pages/client/auth/profile';
+import ForgotPasswordPage from './pages/client/auth/forgot-password';
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/product",
         element: <ProductsPage />,
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPasswordPage />,
       },
       {
         path: "/new",
