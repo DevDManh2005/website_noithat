@@ -10,6 +10,8 @@ import ProductsPage from 'pages/client/product';
 import LoginPage from 'pages/client/auth/login';
 import RegisterPage from 'pages/client/auth/register';
 import HomePage from 'pages/client/home';
+import { CartProvider } from './context/CartContext';
+import Profile from './pages/client/auth/profile';
 
 
 const router = createBrowserRouter([
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <RegisterPage />,
       },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
     ]
   },
 
@@ -46,6 +52,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <CartProvider>
     <RouterProvider router={router} />
-  </StrictMode>,
+    </CartProvider>
+  </StrictMode>
 )
