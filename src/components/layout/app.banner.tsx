@@ -30,9 +30,9 @@ const CustomNextArrow = ({ onClick }: ArrowProps) => (
 );
 
 const banners: Banner[] = [
-    { id: 1, src: "/images/banner.png", alt: "Banner 1" },
-    { id: 2, src: "/images/banner.png", alt: "Banner 2" },
-    { id: 3, src: "/images/banner.png", alt: "Banner 3" },
+    { id: 1, src: "/images/banner1.jpg", alt: "Banner 1" },
+    { id: 2, src: "/images/banner2.jpg", alt: "Banner 2" },
+    { id: 3, src: "/images/banner3.jpg", alt: "Banner 3" },
 ];
 
 const BannerSlider = () => {
@@ -50,14 +50,14 @@ const BannerSlider = () => {
     };
 
     return (
-        <div className="container mx-auto mt-4">
+        <div className="container-full mx-auto mt-4">
             <Slider {...settings}>
                 {banners.map((banner) => (
                     <div key={banner.id} className="px-2">
                         <img
-                            src={banner.src || null}
+                            src={banner.src || undefined}
                             alt={banner.alt}
-                            className="w-full  object-cover rounded-md shadow"
+                            className="w-full h-140 object-cover rounded-md shadow"
                         />
                     </div>
                 ))}

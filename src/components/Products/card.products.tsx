@@ -46,7 +46,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 </span>
             )}
             <img
-                src={product.image || null}
+                src={product.image || undefined}
                 alt={product.name}
                 className="w-full h-[170px] object-contain border-b border-gray-200"
             />

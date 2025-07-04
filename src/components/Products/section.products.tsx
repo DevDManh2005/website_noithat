@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Button } from "antd";
 import ProductCard from "@/components/Products/card.products";
 
@@ -17,7 +16,7 @@ interface ProductSectionProps {
     activeTab: string;
     setActiveTab: (tab: string) => void;
     visible: number;
-    setVisible: (visible: number) => void;
+    setVisible: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const ProductSection = ({ title, products, activeTab, setActiveTab, visible, setVisible }: ProductSectionProps) => {
@@ -72,12 +71,12 @@ const ProductSection = ({ title, products, activeTab, setActiveTab, visible, set
 
             <div className="text-center mt-6 flex justify-center gap-4 flex-wrap">
                 {visible < filteredProducts.length && (
-                    <Button className="bg-[#106f85] text-white" onClick={handleViewMore} disableRipple>
+                    <Button className="bg-[#106f85] text-white" onClick={handleViewMore}>
                         Xem thêm sản phẩm
                     </Button>
                 )}
                 {visible > 8 && (
-                    <Button className="bg-gray-500 text-white" onClick={handleViewLess} disableRipple>
+                    <Button className="bg-gray-500 text-white" onClick={handleViewLess}>
                         Ẩn bớt
                     </Button>
                 )}
