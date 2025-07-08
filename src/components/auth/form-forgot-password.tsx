@@ -32,7 +32,7 @@ const ForgotPasswordForm = () => {
                 <Input />
             </Form.Item>
 
-            <Button type="primary" htmlType="submit" className='w-full !bg-red1 !text-body-bold'>Gửi Yêu Cầu</Button>
+            <Button type="primary" htmlType="submit" className='w-full !bg-red1 !text-body-bold !bg-[#106f85]'>Gửi Yêu Cầu</Button>
 
         </Form>
     )
