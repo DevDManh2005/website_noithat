@@ -1,7 +1,6 @@
-// src/Wishlist.tsx
 import React, { useState, useEffect } from 'react';
 
-// Định nghĩa kiểu dữ liệu cho một sản phẩm (đảm bảo nó khớp với ProductBox.tsx)
+// Định nghĩa kiểu dữ liệu cho một sản phẩm
 interface Product {
   id: number;
   name: string;
@@ -12,25 +11,38 @@ interface Product {
   discountPercentage?: number;
 }
 
+// Dữ liệu FavoriteList (được chuyển từ Favorite sang Product)
+const FavoriteList: Product[] = [
+  { id: 1, name: "Kệ tivi phòng khách KTV96", price: 4750000, image: "https://toanmanh.com/wp-content/uploads/2022/10/ke-tivi-phong-khach-dep.jpg", isPopular: true, category: "hot" },
+  { id: 7, name: "Đèn trang trí hiện đại", price: 1150000, image: "https://toanmanh.com/wp-content/uploads/2022/10/ke-tivi-phong-khach-dep.jpg", discountPercentage: 15, category: "promotion" },
+  { id: 8, name: "Tủ sách gỗ công nghiệp", price: 5800000, image: "https://toanmanh.com/wp-content/uploads/2022/10/ke-tivi-phong-khach-dep.jpg", isPopular: true, category: "bestseller" },
+  { id: 9, name: "Bàn ăn mặt kính", price: 6000000, image: "https://toanmanh.com/wp-content/uploads/2022/03/ghe-g11-1-500x500-2-400x400.jpg", isPopular: true, category: "hot" },
+  { id: 12, name: "Kệ tivi phòng khách KTV96 (phiên bản lớn)", price: 5250000, image: "https://toanmanh.com/wp-content/uploads/2022/10/ke-tivi-phong-khach-dep.jpg", isPopular: true, category: "hot" },
+  { id: 13, name: "Bàn trang điểm gỗ", price: 4800000, image: "https://toanmanh.com/wp-content/uploads/2022/10/ke-tivi-phong-khach-dep.jpg", isPopular: false, category: "featured" },
+  { id: 14, name: "Ghế làm việc văn phòng", price: 3100000, image: "https://toanmanh.com/wp-content/uploads/2022/03/500daa1da5e976d5ccf962a744ec6587-500x500-2-400x400.jpg", isPopular: true, category: "bestseller" },
+];
+
 const Wishlist: React.FC = () => {
   const [wishlistItems, setWishlistItems] = useState<Product[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>(''); // Thêm state cho từ khóa tìm kiếm
-  const [displayedWishlistItems, setDisplayedWishlistItems] = useState<Product[]>([]); // Danh sách sản phẩm được hiển thị sau khi lọc
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [displayedWishlistItems, setDisplayedWishlistItems] = useState<Product[]>([]);
 
-  // Load wishlist từ localStorage khi component mount
+  // Load wishlist từ localStorage hoặc sử dụng FavoriteList khi component mount
   useEffect(() => {
     try {
-      const storedWishlist = localStorage.getItem('wishlist');
+      const storedWishlist = localStorage.getItem('favorites');
       if (storedWishlist) {
         const parsedWishlist: Product[] = JSON.parse(storedWishlist);
         setWishlistItems(parsedWishlist);
         console.log("Wishlist đã được tải từ localStorage:", parsedWishlist);
       } else {
-        console.log("Không tìm thấy wishlist trong localStorage. Khởi tạo rỗng.");
+        // Nếu không có dữ liệu trong localStorage, sử dụng FavoriteList
+        setWishlistItems(FavoriteList);
+        console.log("Khởi tạo wishlist với FavoriteList:", FavoriteList);
       }
     } catch (error) {
       console.error("Lỗi khi đọc wishlist từ localStorage:", error);
-      setWishlistItems([]); // Đặt lại rỗng nếu có lỗi đọc
+      setWishlistItems(FavoriteList); // Fallback to FavoriteList if error
     }
   }, []);
 
@@ -44,14 +56,14 @@ const Wishlist: React.FC = () => {
     }
   }, [wishlistItems]);
 
-  // Effect để lọc danh sách sản phẩm yêu thích khi wishlistItems hoặc searchTerm thay đổi
+  // Effect để lọc danh sách sản phẩm yêu thích
   useEffect(() => {
     const filteredResults = wishlistItems.filter(item =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setDisplayedWishlistItems(filteredResults);
-  }, [wishlistItems, searchTerm]); // Phụ thuộc vào wishlistItems và searchTerm
+  }, [wishlistItems, searchTerm]);
 
   // Hàm để xóa một sản phẩm khỏi danh sách yêu thích
   const handleRemoveFromWishlist = (productId: number) => {
@@ -65,7 +77,6 @@ const Wishlist: React.FC = () => {
     <div className="container mx-auto p-4">
       <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Sản phẩm yêu thích của bạn</h2>
 
-      {/* Thanh tìm kiếm cho Wishlist */}
       <div className="mb-6">
         <input
           type="text"
@@ -84,7 +95,6 @@ const Wishlist: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {displayedWishlistItems.map(product => (
             <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl relative">
-              {/* Nhãn "Phổ biến" hoặc "%" (nếu có) */}
               {(product.isPopular || product.discountPercentage) && (
                 <div className="absolute top-2 left-2 flex gap-2">
                   {product.isPopular && (
@@ -100,7 +110,6 @@ const Wishlist: React.FC = () => {
                 </div>
               )}
 
-              {/* Nút xóa khỏi yêu thích (biểu tượng X) */}
               <div className="absolute top-2 right-2">
                 <button
                   onClick={() => handleRemoveFromWishlist(product.id)}
