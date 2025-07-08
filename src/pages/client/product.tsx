@@ -1,7 +1,8 @@
+import ProductRatingSection from "@/components/Products/rating.product";
 
 const ProductsPage = () => {
     return (
-        <div>Trang sản phẩm</div>
+        <ProductRatingSection />
     )
 }
 

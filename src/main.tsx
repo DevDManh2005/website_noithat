@@ -13,6 +13,7 @@ import HomePage from 'pages/client/home';
 import { CartProvider } from './context/CartContext';
 import Profile from './pages/client/auth/profile';
 import ForgotPasswordPage from './pages/client/auth/forgot-password';
+import WishlistPage from './pages/client/wishlist';
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/wishlist",
+        element: <WishlistPage />,
       },
     ]
   },
