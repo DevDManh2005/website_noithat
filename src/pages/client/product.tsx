@@ -1,8 +1,8 @@
-import ProductRatingSection from "@/components/Products/rating.product";
-
 const ProductsPage = () => {
     return (
-        <ProductRatingSection />
+        <div>
+        Trang sản phẩm
+        </div>
     )
 }
 
