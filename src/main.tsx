@@ -14,6 +14,7 @@ import { CartProvider } from './context/CartContext';
 import Profile from './pages/client/auth/profile';
 import ForgotPasswordPage from './pages/client/auth/forgot-password';
 import WishlistPage from './pages/client/wishlist';
+import CartPage from './pages/client/cart';
 
 
 const router = createBrowserRouter([
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/wishlist",
         element: <WishlistPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
     ]
   },
