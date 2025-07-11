@@ -22,21 +22,21 @@ const AppFooter = () => {
                 <div className="basis-2/12">
                     <h2 className="text-[16px] font-medium mb-[16px]">Liên Kết</h2>
                     <ul>
-                        <li className='py-[4px]'>Thông tin giao hàng</li>
-                        <li className='py-[4px]'>Chính sách bảo mật</li>
-                        <li className='py-[4px]'>Chính sách giao hàng</li>
-                        <li className='py-[4px]'>Thanh toán an toàn</li>
-                        <li className='py-[4px]'>Chính sách hoàn trả</li>
+                        <li className='py-[4px] cursor-pointer'>Thông tin giao hàng</li>
+                        <li className='py-[4px] cursor-pointer'>Chính sách bảo mật</li>
+                        <li className='py-[4px] cursor-pointer'>Chính sách giao hàng</li>
+                        <li className='py-[4px] cursor-pointer'>Thanh toán an toàn</li>
+                        <li className='py-[4px] cursor-pointer'>Chính sách hoàn trả</li>
                     </ul>
                 </div>
                 <div className="basis-2/12">
                     <h2 className="text-[16px] font-medium mb-[16px]">Hỗ Trợ</h2>
                     <ul>
-                        <li className='py-[4px]'>Customer service</li>
-                        <li className='py-[4px]'>Privacy Policy</li>
-                        <li className='py-[4px]'>Terms & Condition</li>
-                        <li className='py-[4px]'>Best Seller</li>
-                        <li className='py-[4px]'>Manufactures</li>
+                        <li className='py-[4px] cursor-pointer'>Customer service</li>
+                        <li className='py-[4px] cursor-pointer'>Privacy Policy</li>
+                        <li className='py-[4px] cursor-pointer'>Terms & Condition</li>
+                        <li className='py-[4px] cursor-pointer'>Best Seller</li>
+                        <li className='py-[4px] cursor-pointer'>Manufactures</li>
                     </ul>
                 </div>
                 <div className="basis-3/12">
@@ -71,11 +71,11 @@ const AppFooter = () => {
             <div className="py-[20px] border-t-1 border-[#ebe6e7]">
                 <div className='container flex justify-between items-center'>
                     <div className='basis-5/12'>Thiết kế và lập trình bở FPT Polytechnic</div>
-                    <ul className="basis-7/12 flex justify-end">
-                        <li className='px-[10px]'>Điều khoản & Điều kiện</li>
-                        <li className='px-[10px]'>Chính sách bảo mật</li>
-                        <li className='px-[10px]'>Chính sách giao hàng</li>
-                        <li className='px-[10px]'>Giới Thiệu</li>
+                    <ul className="basis-7/12 flex justify-end gap-x-10">
+                        <li className='cursor-pointer'>Điều khoản & Điều kiện</li>
+                        <li className='cursor-pointer'>Chính sách bảo mật</li>
+                        <li className='cursor-pointer'>Chính sách giao hàng</li>
+                        <li className='cursor-pointer'>Giới Thiệu</li>
                     </ul>
                 </div>
             </div>
